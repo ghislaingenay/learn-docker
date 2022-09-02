@@ -4,10 +4,11 @@ FROM node:14-alpine
 WORKDIR /usr/app
 
 # Import package.json and index.js (all files)
-COPY ./ ./
+COPY ./package.json ./
 
 # Install some dependencies
-RUN npm install -y
+RUN npm install
+COPY ./ ./
 
 # Default command
 CMD ["npm","start"]
